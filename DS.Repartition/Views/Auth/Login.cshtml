@@ -1,0 +1,27 @@
+﻿@model LoginViewModel
+
+@{
+    ViewBag.Title = "Connexion";
+    Layout = "_Layout";
+}
+
+<h2>Connexion</h2>
+
+<form asp-controller="Auth" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" role="form">
+    <div asp-validation-summary="All" class="validation-summary-errors text-danger"></div>
+    <div class="form-group">
+        <label asp-for="UserName" class="control-label"></label>
+        <input asp-for="UserName" class="form-control"/>
+        <span asp-validation-for="UserName" class="field-validation-error text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password" class="control-label"></label>
+        <input asp-for="Password" type="password" class="form-control"/>
+        <span asp-validation-for="Password" class="field-validation-error text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input asp-for="RememberMe" type="checkbox" class="checkbox" />
+        <label asp-for="RememberMe" class="label"></label>
+    </div>
+    <button type="submit" class="btn btn-success">Connexion</button>
+</form>
